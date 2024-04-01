@@ -1,5 +1,6 @@
 const connection = require('../config/connection');
-const { user, thought, reaction } = require('../models');
+const user = require('../models/user');
+const thought = require('../models/thought')
 
 const users = [
     {
@@ -42,5 +43,5 @@ connection.once('open', async () => {
     await user.collection.insertMany(users);
 
     console.info('Seeding done!');
-    ProcessingInstruction.exit(0);
+    process.exit(0);
 });
